@@ -75,9 +75,9 @@ void muestraPareja( Pareja pa, char* archivo );
 int compararEdades( Judoca a, Judoca b );
 
 /**
- * Empareja
+ * Crea las parejas de judocas con los criterios del enunciado
  */
-void emparejadora(Arbol team1, Arbol team2, char* archivo);
+void crea_parejas(Arbol team1, Arbol team2, char* archivo);
 
 /**
  * Compara un judoca y devuelve true si son iguales

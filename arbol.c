@@ -24,6 +24,7 @@ Arbol creaABB( char *archivo, int team){
     Arbol arbol = createTree();
 
     while( (fscanf(datosEntrada,"%[^\n]%*c",buff) != EOF) && bandera ) {
+    // while( (fscanf(datosEntrada,"%s",buff) != EOF) && bandera ) {
         if( team == 1 ){        // deja de leer cuando llega a equipo 2
             if( !strcmp(buff,"Equipo 2:" )){
                 bandera = 0;
@@ -37,7 +38,9 @@ Arbol creaABB( char *archivo, int team){
             banderin = 1;
         }
         if( strcmp(buff,"Equipo 1:") && strcmp(buff,"Equipo 2:") && banderin ){
+			printf("HOLA CREA ABB antes de llamar a agrega\n");
             arbol = agrega(arbol, stringToJudoca(buff));
+			printf("HOLA CREA ABB despues de llamar a agrega\n");
         }
     }
 
@@ -65,6 +68,7 @@ Judoca stringToJudoca(char persona[]){
 }
 
 Arbol agrega(Arbol a, Judoca dato){
+	printf("HOLA AGREGA\n");
 	if (isEmpty(a)) {
 	    a = malloc(sizeof(TNodo));
 	    a->dato = dato;
@@ -195,7 +199,7 @@ int compararJudoca(Judoca a, Judoca b){
 	return 0;
 }
 
-void emparejadora(Arbol team1, Arbol team2, char* archivo){
+void crea_parejas(Arbol team1, Arbol team2, char* archivo){
 	if( isEmpty(team1) || isEmpty(team2) ) return ;
 
 	Judoca judoca1 = (Judoca)team1->dato;
@@ -205,9 +209,9 @@ void emparejadora(Arbol team1, Arbol team2, char* archivo){
 	if(pareja)
 		team2 = eliminaNodo(team2, pareja->participante2);
 
-	emparejadora(team1->izq, team2, archivo);
-	emparejadora(team1->der, team2, archivo);
-
+	crea_parejas(team1->izq, team2, archivo);
+	crea_parejas(team1->der, team2, archivo);
+crea_parejas
 }
 
 Pareja formarPareja(Judoca judoca1, Judoca judoca2, int a){
