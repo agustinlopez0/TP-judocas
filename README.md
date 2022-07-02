@@ -1,4 +1,4 @@
-# TP - Judocas
+# TP - Matchmaking
 Este es el trabajo práctico final del segundo cuatrimestre de la materia **Taller de Programación** de 5to año Informática del Instituto Politécnico Superior
 
 ## Se puede compilar y ejecutar con:
